@@ -22,7 +22,16 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
     public float jumpSpeed;
     private bool doublejump;
-    private bool isTouchingJumpableWall;
+    public int wallJumps;
+    private int wallJumpTracker;
+    
+    //wallJump
+    private bool isTouchingJumpableWallOnLeft;
+    private bool isTouchingJumpableWallOnRight;
+    public Transform wallJumpCheckLeft;
+    public Transform wallJumpCheckRight;
+    public float wallCheckRadius;
+    public LayerMask whatIsJumpableWall;
 
     //Animation
     //private Animator myAnimator;
@@ -37,7 +46,9 @@ public class PlayerController : MonoBehaviour
         //myAnimator = GetComponent<Animator>();
         //theLevelManager = FindObjectOfType<LevelManager>();
         doublejump = false;
-        isTouchingJumpableWall = false;
+        isTouchingJumpableWallOnLeft = false;
+        isTouchingJumpableWallOnRight = false;
+        wallJumpTracker = wallJumps;
 
     }
 
@@ -49,7 +60,8 @@ public class PlayerController : MonoBehaviour
 
         //JumpSetup
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckradius, WhatIsGround);
-
+        isTouchingJumpableWallOnLeft = Physics2D.OverlapCircle(wallJumpCheckLeft.position, wallCheckRadius, whatIsJumpableWall);
+        isTouchingJumpableWallOnRight = Physics2D.OverlapCircle(wallJumpCheckRight.position, wallCheckRadius, whatIsJumpableWall);
         //Moving the Player
         if (Input.GetKey(right))
         {
@@ -69,20 +81,32 @@ public class PlayerController : MonoBehaviour
         }
 
         //JumpCheck
+
+        
         if (Input.GetKeyDown(jump))
         {
             if (isGrounded)
             {
                 myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, jumpSpeed, 0f);
                 doublejump = true;
+                wallJumpTracker = wallJumps;
             }
             else
             {
-                /*if (doublejump)
+
+                if (doublejump)
                 {
                     myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, jumpSpeed, 0f);
                     doublejump = false;
-                }*/
+                }
+                else if (Input.GetKeyDown(jump) && (wallJumpTracker > 0) && (isTouchingJumpableWallOnLeft || isTouchingJumpableWallOnRight))
+                {
+                    myRigidBody.AddForce(new Vector2(myRigidBody.velocity.x, 2* jumpSpeed), ForceMode2D.Impulse);
+                        //myRigidBody.velocity = new Vector3(4*jumpSpeed, jumpSpeed, 0f);
+                    doublejump = false;
+                    wallJumpTracker -= 1;
+
+                }
             }
 
         }
@@ -90,18 +114,17 @@ public class PlayerController : MonoBehaviour
         //myAnimator.SetFloat("Speed", myRigidBody.velocity.x);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    /*private void OnCollisionEnter2D(Collision2D other)
     {
-        if (Physics2D.OverlapCircle(groundCheck.position, groundCheckradius, WhatIsGround))
+
+
+        if (Input.GetKeyDown(jump) && (isTouchingJumpableWallOnLeft || isTouchingJumpableWallOnRight))
         {
-            isTouchingJumpableWall = true;
-            if (Input.GetKeyDown(jump) && !isGrounded && isTouchingJumpableWall)
-            {
                 myRigidBody.velocity = new Vector3(-myRigidBody.velocity.x, -jumpSpeed/2, 0f);
-            }
+          
 
         }
-    }
+    }*/
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "killzone")
