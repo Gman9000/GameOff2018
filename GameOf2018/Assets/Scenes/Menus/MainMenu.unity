@@ -319,7 +319,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1467117503}
-        m_MethodName: PlayIntro
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -734,10 +734,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b93e8c5599cb8141aaa7155e96ee699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playGame: MainGame
+  playGame: Chapter0-1
   mainMenu: MainMenu
   credits: Credits
-  intro: Tutorial
+  intro: 
 --- !u!1 &1784623051
 GameObject:
   m_ObjectHideFlags: 0
