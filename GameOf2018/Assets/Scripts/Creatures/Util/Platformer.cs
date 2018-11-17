@@ -4,10 +4,10 @@ using UnityEngine;
 
 public abstract class Platformer : MonoBehaviour {
 
-    private Rigidbody2D myRigidBody;
-    private BoxCollider2D myBoxCollider;
-    private RuntimeAnimatorController myAnimatorController;
-    private Fighter myFighter;
+    protected Rigidbody2D myRigidBody;
+    protected BoxCollider2D myBoxCollider;
+    protected RuntimeAnimatorController myAnimatorController;
+    protected Fighter myFighter;
 
 
 }
