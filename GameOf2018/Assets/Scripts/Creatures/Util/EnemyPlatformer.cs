@@ -6,7 +6,4 @@ public abstract class EnemyPlatformer : Platformer
 {
     public List<Hitbox> hitboxes;
 
-
-    public abstract void move();
-
 }

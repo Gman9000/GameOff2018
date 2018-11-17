@@ -22,13 +22,10 @@ public class PlayerPlatformer : Platformer
 
 
     // Use this for initialization
-    void Start()
+    public override void init()
     {
         remainingJumps = 0;
         pressingJump = false;
-        myRigidBody = GetComponent<Rigidbody2D>();
-        myBoxCollider = GetComponent<BoxCollider2D>();
-        myAnimatorController = GetComponent<RuntimeAnimatorController>();
     }
 
     void FixedUpdate()
