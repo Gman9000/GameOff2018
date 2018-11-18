@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerFighter : Fighter
 {	
-    void FixedUpdate()
+    protected override void SubclassUpdate()
     {
         // poll for attacking
     }

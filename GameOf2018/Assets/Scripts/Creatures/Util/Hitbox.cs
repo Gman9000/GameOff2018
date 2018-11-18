@@ -16,7 +16,7 @@ public class Hitbox : MonoBehaviour
 
         if (bridgette != null && bridgette.enabled)
         {
-            StateManager.instance.switchToFighting(bridgette, myPlatformer, collision.GetContact(0).point);
+            StateManager.instance.StartCombat(bridgette, myPlatformer, collision.GetContact(0).point);
         }
     }
 }

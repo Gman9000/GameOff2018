@@ -44,3 +44,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: SoftTransition
+    uniqueID: 2545385009
+    locked: 0
+  - name: Entities
+    uniqueID: 2549021257
+    locked: 0
+  - name: HardTransition
+    uniqueID: 2774308217
+    locked: 0

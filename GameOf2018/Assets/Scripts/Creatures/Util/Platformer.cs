@@ -13,6 +13,13 @@ public abstract class Platformer : MonoBehaviour {
         }
     }
     protected BoxCollider2D myBoxCollider;
+    public BoxCollider2D MyBoxCollider
+    {
+        get
+        {
+            return myBoxCollider;
+        }
+    }
     protected RuntimeAnimatorController myAnimatorController;
     protected Fighter myFighter;
 
@@ -26,12 +33,17 @@ public abstract class Platformer : MonoBehaviour {
         init();
     }
 
-    public abstract void init();
+    protected abstract void init();
 
-    public void changeToFighter()
+    public void changeToFighter(Vector2 anchor, float transitionTime)
     {
-        //myFighter.enabled = true;
+        myFighter.enabled = true;
+        myFighter.Init(anchor, transitionTime);
         this.enabled = false;
-        myRigidBody.isKinematic = true;
+        DisableCollider();
+        //myRigidBody.isKinematic = true;
     }
+
+    protected abstract void DisableCollider();
+    protected abstract void EnableCollider();
 }

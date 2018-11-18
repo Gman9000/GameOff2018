@@ -22,10 +22,21 @@ public class PlayerPlatformer : Platformer
 
 
     // Use this for initialization
-    public override void init()
+    protected override void init()
     {
         remainingJumps = 0;
         pressingJump = false;
+    }
+
+    protected override void DisableCollider()
+    {
+        myBoxCollider.enabled = false;
+        myRigidBody.gravityScale = 0;
+    }
+    protected override void EnableCollider()
+    {
+        myBoxCollider.enabled = true;
+        myRigidBody.gravityScale = 1;
     }
 
     void FixedUpdate()

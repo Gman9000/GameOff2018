@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StationaryPlatformer : EnemyPlatformer {
 
-    public override void init()
+    protected override void SubclassInit()
     {
 
     }
