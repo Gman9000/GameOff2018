@@ -60,13 +60,15 @@ public class StateManager : MonoBehaviour {
         Vector2 eDir = eAnchor - enemy.MyRigidBody.position;
 
         bridgette.MyRigidBody.velocity = bDir / transitionTime;
+        bridgette.transform.localScale = new Vector2(Mathf.Abs(bridgette.transform.localScale.x), bridgette.transform.localScale.y);
         enemy.MyRigidBody.velocity = eDir / transitionTime;
+        enemy.transform.localScale = new Vector2(Mathf.Abs(enemy.transform.localScale.x), enemy.transform.localScale.y);
 
         bridgette.changeToFighter(bAnchor, transitionTime);
         enemy.changeToFighter(eAnchor, transitionTime);
 
         SwitchToCamera(fighterCamera);
-        blackScreenScaleRate = -400f;
+        blackScreenScaleRate = -1f / transitionTime * BlackScreen.transform.localScale.x;
     }
 
     private void SwitchToCamera(Camera c)
