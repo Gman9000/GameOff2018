@@ -22,6 +22,13 @@ public abstract class Platformer : MonoBehaviour {
     }
     protected RuntimeAnimatorController myAnimatorController;
     protected Fighter myFighter;
+    public Fighter MyFighter
+    {
+        get
+        {
+            return myFighter;
+        }
+    }
 
     // Use this for initialization
     void Start()

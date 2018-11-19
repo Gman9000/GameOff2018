@@ -67,6 +67,8 @@ public class StateManager : MonoBehaviour {
         bridgette.changeToFighter(bAnchor, transitionTime);
         enemy.changeToFighter(eAnchor, transitionTime);
 
+        FightManager.instance.Init(bridgette.MyFighter, enemy.MyFighter);
+
         SwitchToCamera(fighterCamera);
         blackScreenScaleRate = -1f / transitionTime * BlackScreen.transform.localScale.x;
     }

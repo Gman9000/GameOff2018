@@ -113,6 +113,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &57615593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114636915681578168, guid: 69caff719067f624191377d76f2e7d92,
+    type: 2}
+  m_PrefabInternal: {fileID: 90438840}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &75137546 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114758993325777908, guid: 69caff719067f624191377d76f2e7d92,
+    type: 2}
+  m_PrefabInternal: {fileID: 1121934212}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &90438840
 Prefab:
   m_ObjectHideFlags: 0
@@ -212,7 +224,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1623811649655714, guid: 69caff719067f624191377d76f2e7d92, type: 2}
       propertyPath: m_Name
-      value: FighterUI (1)
+      value: EnemyUI
       objectReference: {fileID: 0}
     - target: {fileID: 224659439830196840, guid: 69caff719067f624191377d76f2e7d92,
         type: 2}
@@ -395,6 +407,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &225993965 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114636915681578168, guid: 69caff719067f624191377d76f2e7d92,
+    type: 2}
+  m_PrefabInternal: {fileID: 1121934212}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &294666481 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114758993325777908, guid: 69caff719067f624191377d76f2e7d92,
+    type: 2}
+  m_PrefabInternal: {fileID: 90438840}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &321662061
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +429,7 @@ GameObject:
   - component: {fileID: 321662064}
   - component: {fileID: 321662063}
   - component: {fileID: 321662062}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: platform (1)
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -528,8 +552,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a034a1861d6c3464e9ceac941c0dfe61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  profile: {fileID: 21300000, guid: 78a91643d5cbe204ca36a256b9bb77db, type: 3}
   creatureName: Bridgette
-  hp: 100
+  maxHealth: 100
   attacks: []
 --- !u!50 &509026020
 Rigidbody2D:
@@ -672,6 +697,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   maxJumps: 2
+--- !u!114 &558428557 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114518735340008872, guid: 69caff719067f624191377d76f2e7d92,
+    type: 2}
+  m_PrefabInternal: {fileID: 90438840}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &628680859
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,6 +747,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &750894962 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114311373524591778, guid: 69caff719067f624191377d76f2e7d92,
+    type: 2}
+  m_PrefabInternal: {fileID: 1121934212}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &785026256
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +815,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &811058365 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114989858324363766, guid: 69caff719067f624191377d76f2e7d92,
+    type: 2}
+  m_PrefabInternal: {fileID: 1121934212}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &815573064
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +896,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &852253303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114989858324363766, guid: 69caff719067f624191377d76f2e7d92,
+    type: 2}
+  m_PrefabInternal: {fileID: 90438840}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1003768951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114311373524591778, guid: 69caff719067f624191377d76f2e7d92,
+    type: 2}
+  m_PrefabInternal: {fileID: 90438840}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1033178752
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,9 +1031,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee8aa2c8714e024a9f5658af3495edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  profile: {fileID: 21300000, guid: 78a91643d5cbe204ca36a256b9bb77db, type: 3}
   creatureName: PLAY
-  hp: 1
-  attacks: []
+  maxHealth: 100
+  attacks:
+  - {fileID: 11400000, guid: fa480401ba90a764e86159d8e35024da, type: 2}
 --- !u!1 &1068677888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1203,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1623811649655714, guid: 69caff719067f624191377d76f2e7d92, type: 2}
+      propertyPath: m_Name
+      value: PlayerUI
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69caff719067f624191377d76f2e7d92, type: 2}
   m_IsPrefabAsset: 0
@@ -1229,6 +1290,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224659439830196840, guid: 69caff719067f624191377d76f2e7d92,
     type: 2}
   m_PrefabInternal: {fileID: 90438840}
+--- !u!114 &1216219353 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114237458726293662, guid: 69caff719067f624191377d76f2e7d92,
+    type: 2}
+  m_PrefabInternal: {fileID: 90438840}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1292388900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1397,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1452739126 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114518735340008872, guid: 69caff719067f624191377d76f2e7d92,
+    type: 2}
+  m_PrefabInternal: {fileID: 1121934212}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1524121109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +1667,7 @@ GameObject:
   - component: {fileID: 1690656304}
   - component: {fileID: 1690656303}
   - component: {fileID: 1690656302}
+  - component: {fileID: 1690656305}
   m_Layer: 0
   m_Name: Fighter Camera
   m_TagString: Untagged
@@ -1662,11 +1736,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1690656305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1690656301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa374b3dc8e6b1041b0f67acfe5bc4da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bridgetteImage: {fileID: 1771852104}
+  bridgetteName: {fileID: 811058365}
+  bridgetteMaxHealthBar: {fileID: 1452739126}
+  bridgetteHealthBar: {fileID: 750894962}
+  bridgetteMaxActionBar: {fileID: 225993965}
+  bridgetteActionBar: {fileID: 75137546}
+  enemyImage: {fileID: 1216219353}
+  enemyName: {fileID: 852253303}
+  enemyMaxHealthBar: {fileID: 558428557}
+  enemyHealthBar: {fileID: 1003768951}
+  enemyMaxActionBar: {fileID: 57615593}
+  enemyActionBar: {fileID: 294666481}
 --- !u!224 &1771852103 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224659439830196840, guid: 69caff719067f624191377d76f2e7d92,
     type: 2}
   m_PrefabInternal: {fileID: 1121934212}
+--- !u!114 &1771852104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114237458726293662, guid: 69caff719067f624191377d76f2e7d92,
+    type: 2}
+  m_PrefabInternal: {fileID: 1121934212}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1841160854
 GameObject:
   m_ObjectHideFlags: 0

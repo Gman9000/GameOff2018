@@ -4,8 +4,10 @@ using UnityEngine;
 
 public abstract class Fighter : MonoBehaviour {
 
+    public Sprite profile; 
     public string creatureName;
-    public int hp;
+    public int maxHealth;
+    private int currentHealth;
     public List<Attack> attacks;
 
     protected Rigidbody2D myRigidBody;
@@ -22,17 +24,27 @@ public abstract class Fighter : MonoBehaviour {
     private float toZeroCounter; // set velocity to 0 when this hits 0
     private Vector2 anchorPoint;
 
+    protected int attackIndex;
+    protected float attackCounter;
+
+    protected float MAX_ACTION_BAR = 100f;
+    protected float actionBarCounter;
+
     // Use this for initialization
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimatorController = GetComponent<RuntimeAnimatorController>();
         myPlatformer = GetComponent<Platformer>();
+        currentHealth = maxHealth;
     }
 
-    public void useAttack()
+    public void UseAttack(int index)
     {
-        // code
+        attackIndex = index;
+        attackCounter = attacks[index].windUp + attacks[index].hitTime;
+        actionBarCounter = 0.0f;
+        Debug.Log("init attack");
     }
 
     void FixedUpdate()
@@ -47,6 +59,49 @@ public abstract class Fighter : MonoBehaviour {
             myRigidBody.velocity = Vector2.zero;
             myRigidBody.position = anchorPoint;
             SubclassUpdate();
+
+            // if you are in hit time, dmg
+            if (attackCounter > 0.0f && attackCounter <= attacks[attackIndex].hitTime)
+            {
+                if (FightManager.instance.IsTie(this, attacks[attackIndex].windUp, attacks[attackIndex].hitTime))
+                {
+                    // clash with opponent
+                }
+                else
+                {
+                    // change opponent to hit animation
+                    FightManager.instance.DealDamage(this, attacks[attackIndex].damage);
+                }
+                attackCounter = 0.0f;
+            }
+
+            ManageCooldowns();
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+            // tell fightmanager that you died
+        }
+        Debug.Log("took damage");
+    }
+
+    public float HealthPercent
+    {
+        get
+        {
+            return (float)currentHealth / (float)maxHealth;
+        }
+    }
+    public float ActionPercent
+    {
+        get
+        {
+            return (float)actionBarCounter / (float)MAX_ACTION_BAR;
         }
     }
 
@@ -56,5 +111,23 @@ public abstract class Fighter : MonoBehaviour {
     {
         anchorPoint = anchor;
         toZeroCounter = transitionTime;
+
+        actionBarCounter = MAX_ACTION_BAR;
+    }
+
+    private void ManageCooldowns()
+    {
+        if (attackCounter > 0.0f)
+        {
+            attackCounter -= Time.deltaTime;
+        }
+        if (actionBarCounter < MAX_ACTION_BAR)
+        {
+            actionBarCounter += Time.deltaTime / attacks[attackIndex].cooldown * MAX_ACTION_BAR;
+        }
+        else
+        {
+            actionBarCounter = MAX_ACTION_BAR;
+        }
     }
 }
