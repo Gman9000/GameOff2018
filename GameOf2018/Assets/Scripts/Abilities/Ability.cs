@@ -4,6 +4,11 @@ using UnityEngine;
 
 public abstract class Ability : MonoBehaviour
 {
-    public PlayerPlatformer player;
+    protected PlayerPlatformer player;
+    
+    private void Start()
+    {
+        player.GetComponent <PlayerPlatformer>();
+    }
 
 }
