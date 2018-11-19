@@ -395,14 +395,14 @@ MonoBehaviour:
   moveSpeed: 5
   left: 97
   right: 100
-  jump: 119
-  groundCheck: {fileID: 2010400006}
-  groundCheckradius: 0.25
+  jumpSpeed: 10
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  jump: 119
+  groundCheck: {fileID: 2010400006}
+  groundCheckradius: 0.25
   isGrounded: 0
-  jumpSpeed: 10
   wallJumps: 1
   wallJumpCheckLeft: {fileID: 1623276913}
   wallJumpCheckRight: {fileID: 378332896}
@@ -410,7 +410,6 @@ MonoBehaviour:
   whatIsJumpableWall:
     serializedVersion: 2
     m_Bits: 512
-  throwSnowballSound: {fileID: 0}
 --- !u!50 &509026020
 Rigidbody2D:
   serializedVersion: 4
