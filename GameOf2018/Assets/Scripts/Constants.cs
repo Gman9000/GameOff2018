@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Constants {
+public class Constants
+{
 
-	public static class PlayerInput
+    public static class PlayerInput
     {
         public static bool IsPressingLeft
         {
@@ -43,7 +44,15 @@ public class Constants {
             get
             {
                 return Input.GetKey(KeyCode.Space);
-            } 
+            }
+        }
+
+        public static bool IsPressingAirDash
+        {
+            get
+            {
+                return Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.F) || Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+            }
         }
     }
 }

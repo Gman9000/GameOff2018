@@ -27,12 +27,24 @@ public class PlayerPlatformer : Platformer
     private float wallJumpCounter;
     public float wallJumpSpeed;
 
+    // Air Dashing
+    public int maxAirDashes;
+    private int remainingAirDashes;
+    private bool pressingAirDash;
+
+    public float dashDuration;
+
+    private float dashTime;
+
+    public float airDashSpeed;
+
     // Use this for initialization
     protected override void init()
     {
         remainingJumps = 0;
         pressingJump = false;
         wallJumpCounter = 0;
+        remainingAirDashes = maxAirDashes;
     }
 
     protected override void DisableCollider()
@@ -52,6 +64,7 @@ public class PlayerPlatformer : Platformer
         if (IsGrounded())
         {
             remainingJumps = maxJumps;
+            remainingAirDashes = maxAirDashes;
         }
         // if the player is not grounded, but has full jumps, subtract one to prevent free air jump
         else if (remainingJumps >= maxJumps)
@@ -60,7 +73,8 @@ public class PlayerPlatformer : Platformer
         }
 
         //Moving the Player
-        if (wallJumpCounter <= 0) {
+        if (wallJumpCounter <= 0)
+        {
             if (Constants.PlayerInput.IsPressingRight)
             {
                 myRigidBody.velocity = new Vector3(moveSpeed, myRigidBody.velocity.y, 0f);
@@ -79,14 +93,14 @@ public class PlayerPlatformer : Platformer
             {
                 myRigidBody.velocity = new Vector3(0f, myRigidBody.velocity.y, 0f);
             }
-            
+
         }
 
         if (Constants.PlayerInput.IsPressingSpace && IsTouchingWall())
         {
-            float wallJumpx = (-(( wallJumpSpeed) / (Mathf.Sqrt(2))) * transform.localScale.x);
+            float wallJumpx = (-((wallJumpSpeed) / (Mathf.Sqrt(2))) * transform.localScale.x);
             float wallJumpy = ((jumpSpeed) / (Mathf.Sqrt(2)));
-            MyRigidBody.velocity = new Vector2(wallJumpx,wallJumpy);
+            MyRigidBody.velocity = new Vector2(wallJumpx, wallJumpy);
             pressingJump = true;
             wallJumpCounter = wallJumpCooldown;
         }
@@ -104,9 +118,32 @@ public class PlayerPlatformer : Platformer
             pressingJump = false;
         }
 
-        if (wallJumpCounter >= 0) {
+        if (wallJumpCounter >= 0)
+        {
             wallJumpCounter -= Time.deltaTime;
         }
+
+        if (!IsGrounded() && Constants.PlayerInput.IsPressingAirDash && remainingAirDashes > 0)
+        {
+            Debug.Log("AIRDASH");
+            // if (dashTime <= 0)
+            // {
+            //     dashTime = dashDuration;
+            // }
+            // dashTime -= Time.deltaTime;
+
+            if (transform.localScale.x > 0)
+            {
+                myRigidBody.velocity = new Vector2((transform.localScale.x * airDashSpeed), myRigidBody.velocity.y);
+            }
+            else
+            {
+                myRigidBody.velocity = new Vector2((transform.localScale.x * airDashSpeed), myRigidBody.velocity.y);
+            }
+            remainingAirDashes--;
+
+        }
+
         //myAnimator.SetFloat("Speed", myRigidBody.velocity.x);
     }
 
