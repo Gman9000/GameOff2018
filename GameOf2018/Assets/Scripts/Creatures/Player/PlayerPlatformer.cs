@@ -33,7 +33,6 @@ public class PlayerPlatformer : Platformer
     private bool pressingAirDash;
 
     public float dashDuration;
-
     private float dashTime;
 
     public float airDashSpeed;
@@ -44,6 +43,7 @@ public class PlayerPlatformer : Platformer
         remainingJumps = 0;
         pressingJump = false;
         wallJumpCounter = 0;
+        dashTime = 0;
         remainingAirDashes = maxAirDashes;
     }
 
@@ -73,7 +73,7 @@ public class PlayerPlatformer : Platformer
         }
 
         //Moving the Player
-        if (wallJumpCounter <= 0)
+        if (wallJumpCounter <= 0 && dashTime <= 0)
         {
             if (Constants.PlayerInput.IsPressingRight)
             {
@@ -123,26 +123,26 @@ public class PlayerPlatformer : Platformer
             wallJumpCounter -= Time.deltaTime;
         }
 
-        if (!IsGrounded() && Constants.PlayerInput.IsPressingAirDash && remainingAirDashes > 0)
+        if (!IsGrounded() && Constants.PlayerInput.IsPressingAirDash && !pressingAirDash && remainingAirDashes > 0)
         {
-            Debug.Log("AIRDASH");
-            // if (dashTime <= 0)
-            // {
-            //     dashTime = dashDuration;
-            // }
-            // dashTime -= Time.deltaTime;
-
-            if (transform.localScale.x > 0)
-            {
-                myRigidBody.velocity = new Vector2((transform.localScale.x * airDashSpeed), myRigidBody.velocity.y);
-            }
-            else
-            {
-                myRigidBody.velocity = new Vector2((transform.localScale.x * airDashSpeed), myRigidBody.velocity.y);
-            }
+            pressingAirDash = true;
+            //localscale will take care of dashing in different directions
+            float airDashx = ((airDashSpeed / (Mathf.Sqrt(2))) * transform.localScale.x);
+            float airDashy = myRigidBody.velocity.y;
+            myRigidBody.velocity = new Vector2(airDashx,airDashy);
             remainingAirDashes--;
+            dashTime = dashDuration;
 
         }
+        else if (!Constants.PlayerInput.IsPressingAirDash)
+        {
+            pressingAirDash = false;
+        }
+        if (dashTime >= 0)
+        {
+            dashTime -= Time.deltaTime;
+        }
+
 
         //myAnimator.SetFloat("Speed", myRigidBody.velocity.x);
     }
@@ -158,10 +158,6 @@ public class PlayerPlatformer : Platformer
 
         }
     }*/
-    public bool GetPressingJump()
-    {
-        return pressingJump;
-    }
 
     // checks the grounded state of the BoxCollider2D
     public bool IsGrounded()
