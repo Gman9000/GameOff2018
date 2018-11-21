@@ -658,7 +658,7 @@ MonoBehaviour:
   m_Follow: {fileID: 509026023}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 3.5
+    OrthographicSize: 3.91
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -670,7 +670,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 420981217}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.0999994, y: 0.00000011920929, z: -10}
+  m_LocalPosition: {x: -6.0999994, y: -0.00000011920929, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 794349645}
@@ -743,7 +743,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -864,7 +864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theLevelManager: {fileID: 0}
   moveSpeed: 5
-  jumpSpeed: 10
+  jumpSpeed: 12
   ground:
     serializedVersion: 2
     m_Bits: 256
@@ -874,6 +874,7 @@ MonoBehaviour:
   maxAirDashes: 2
   dashDuration: 0.3
   airDashSpeed: 18
+  gravityScale: 4
 --- !u!114 &558428557 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114518735340008872, guid: 69caff719067f624191377d76f2e7d92,
@@ -1142,13 +1143,13 @@ MonoBehaviour:
   m_ScreenX: 0.49999997
   m_ScreenY: 0.5
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0.15063284
-  m_DeadZoneHeight: 0.4215433
+  m_DeadZoneWidth: 0.22451921
+  m_DeadZoneHeight: 0.42184883
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 0.8108499
-  m_SoftZoneHeight: 0.8
-  m_BiasX: 0
+  m_SoftZoneWidth: 0.87402207
+  m_SoftZoneHeight: 0.90924376
+  m_BiasX: -0.0000003039668
   m_BiasY: 0
   m_GroupFramingMode: 2
   m_AdjustmentMode: 2
@@ -1354,7 +1355,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 939271475}
   m_LocalRotation: {x: -0, y: -0, z: -0.7028706, w: 0.7113178}
-  m_LocalPosition: {x: 6.78, y: 3.47, z: 0}
+  m_LocalPosition: {x: 7.63, y: 3.52, z: 0}
   m_LocalScale: {x: 0.4611953, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2573,7 +2574,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 3.5
+  orthographic size: 3.91
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2596,7 +2597,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2050097190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1285763, y: 0.013336062, z: -10}
+  m_LocalPosition: {x: -1.2907019, y: 0.01614821, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

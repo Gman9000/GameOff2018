@@ -36,6 +36,7 @@ public class PlayerPlatformer : Platformer
     private float dashTime;
 
     public float airDashSpeed;
+    public float gravityScale;
 
     // Use this for initialization
     protected override void init()
@@ -55,7 +56,7 @@ public class PlayerPlatformer : Platformer
     protected override void EnableCollider()
     {
         myBoxCollider.enabled = true;
-        myRigidBody.gravityScale = 1;
+        myRigidBody.gravityScale = 4;
     }
 
     void FixedUpdate()
@@ -75,6 +76,7 @@ public class PlayerPlatformer : Platformer
         //Moving the Player
         if (wallJumpCounter <= 0 && dashTime <= 0)
         {
+            myRigidBody.gravityScale = gravityScale;
             if (Constants.PlayerInput.IsPressingRight)
             {
                 myRigidBody.velocity = new Vector3(moveSpeed, myRigidBody.velocity.y, 0f);
@@ -95,21 +97,25 @@ public class PlayerPlatformer : Platformer
             }
 
         }
+        else
+        {
+            myRigidBody.gravityScale = 0f;
+        }
 
-        if (Constants.PlayerInput.IsPressingSpace && IsTouchingWall())
+        if (Constants.PlayerInput.IsPressingSpace && IsTouchingWall() && !IsGrounded() && !pressingJump)
         {
             float wallJumpx = (-((wallJumpSpeed) / (Mathf.Sqrt(2))) * transform.localScale.x);
             float wallJumpy = ((jumpSpeed) / (Mathf.Sqrt(2)));
             MyRigidBody.velocity = new Vector2(wallJumpx, wallJumpy);
             pressingJump = true;
             wallJumpCounter = wallJumpCooldown;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
 
         //if a player is pressing jump, has jumps left to press, and isn't holding jump from a previous input, and we are not touching the wall jump
-        else if (Constants.PlayerInput.IsPressingSpace && remainingJumps > 0 && !pressingJump && !IsTouchingWall())
+        else if (Constants.PlayerInput.IsPressingSpace && remainingJumps > 0 && !pressingJump)
         {
             myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, jumpSpeed, 0f);
-            Debug.Log("JUMP");
             --remainingJumps;
             pressingJump = true;
         }
@@ -128,9 +134,9 @@ public class PlayerPlatformer : Platformer
             pressingAirDash = true;
             //localscale will take care of dashing in different directions
             float airDashx = ((airDashSpeed / (Mathf.Sqrt(2))) * transform.localScale.x);
-            float airDashy = myRigidBody.velocity.y;
+            float airDashy = 0f;
             myRigidBody.velocity = new Vector2(airDashx,airDashy);
-            remainingAirDashes--;
+            --remainingAirDashes;
             dashTime = dashDuration;
 
         }
@@ -167,9 +173,9 @@ public class PlayerPlatformer : Platformer
 
         Vector2 position = myRigidBody.position + offset;
         Vector2 direction = Vector2.down;
-        float xRightPosition = (float)(position.x + ((myBoxCollider.size.x / 2) * transform.localScale.x * 0.95));
+        float xRightPosition = (float)(position.x + ((myBoxCollider.size.x / 2) * transform.localScale.x * 0.60));
         float yRIghtPosition = position.y;
-        float xLeftPosition = (float)(position.x - ((myBoxCollider.size.x / 2) * transform.localScale.x * 0.95));
+        float xLeftPosition = (float)(position.x - ((myBoxCollider.size.x / 2) * transform.localScale.x * 0.60));
         float yLeftPosition = position.y;
 
         float distance = (myBoxCollider.size.y / 2) * transform.localScale.y * 1.05f;
@@ -202,9 +208,9 @@ public class PlayerPlatformer : Platformer
         {
 
             Vector2 direction = Vector2.left;
-            float xTopPosition = (float)(position.x + ((MyBoxCollider.size.x / 2) * transform.localScale.x * 0.95));
+            float xTopPosition = (float)(position.x + ((MyBoxCollider.size.x / 2) * transform.localScale.x * 0.60));
             float yTopPosition = position.y;
-            float xBottomPosition = (float)(position.x + ((MyBoxCollider.size.x / 2) * transform.localScale.x * 0.95));
+            float xBottomPosition = (float)(position.x + ((MyBoxCollider.size.x / 2) * transform.localScale.x * 0.60));
             float yBottomPosition = position.y;
 
             float distance = -(MyBoxCollider.size.x / 2) * transform.localScale.x * 1.05f;
