@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 9e53e68401adf46208008d695c6cff2f
+guid: 86be12b4e55484c62b93e5529ec5ac72
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Hi_Bridgette_Structs_Blue_0
-    21300002: Hi_Bridgette_Structs_Blue_1
-    21300004: Hi_Bridgette_Structs_Blue_2
-    21300006: Hi_Bridgette_Structs_Blue_3
-    21300008: Hi_Bridgette_Structs_Blue_4
-    21300010: Hi_Bridgette_Structs_Blue_5
-    21300012: Hi_Bridgette_Structs_Blue_6
+    21300000: Hi_Bridgette-BG_Structs_Red_0
+    21300002: Hi_Bridgette-BG_Structs_Red_1
+    21300004: Hi_Bridgette-BG_Structs_Red_2
+    21300006: Hi_Bridgette-BG_Structs_Red_3
+    21300008: Hi_Bridgette-BG_Structs_Red_4
+    21300010: Hi_Bridgette-BG_Structs_Red_5
+    21300012: Hi_Bridgette-BG_Structs_Red_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -91,51 +91,31 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hi_Bridgette_Structs_Blue_0
+      name: Hi_Bridgette-BG_Structs_Red_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 20
+        y: 376
+        width: 356
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdcea5881df67484c8653b9779513307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hi_Bridgette-BG_Structs_Red_1
+      rect:
+        serializedVersion: 2
+        x: 386
         y: 7
-        width: 173
-        height: 304
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 764101544c5ec4f42acc452b1b2dc4d5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hi_Bridgette_Structs_Blue_1
-      rect:
-        serializedVersion: 2
-        x: 153
-        y: 4
-        width: 355
-        height: 108
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f70ccef2866094360ac61d409a2c5c7c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hi_Bridgette_Structs_Blue_2
-      rect:
-        serializedVersion: 2
-        x: 524
-        y: 4
         width: 446
         height: 402
       alignment: 0
@@ -145,18 +125,38 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3dec9fef01c54699a8c1a0d7a6a81b0
+      spriteID: 82bed85f083fc4d05a130a62854bf32d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hi_Bridgette_Structs_Blue_3
+      name: Hi_Bridgette-BG_Structs_Red_2
       rect:
         serializedVersion: 2
-        x: 984
-        y: 4
-        width: 249
+        x: 92
+        y: 10
+        width: 173
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b46ba71d85fe54bf6b0337493c0c0e9c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hi_Bridgette-BG_Structs_Red_3
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 7
+        width: 248
         height: 273
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -165,17 +165,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d95f6b6a17500484c8f77b15b3711ffc
+      spriteID: 7b8e3442eba264880835ebc3f9ee4b15
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hi_Bridgette_Structs_Blue_4
+      name: Hi_Bridgette-BG_Structs_Red_4
       rect:
         serializedVersion: 2
-        x: 1242
-        y: 5
+        x: 1217
+        y: 8
         width: 201
         height: 258
       alignment: 0
@@ -185,17 +185,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09648b5cf1ae846fa91376b3632ad831
+      spriteID: 5ce3ab1fca8b047f4acf55a5e2586c99
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hi_Bridgette_Structs_Blue_5
+      name: Hi_Bridgette-BG_Structs_Red_5
       rect:
         serializedVersion: 2
-        x: 1448
-        y: 4
+        x: 1446
+        y: 7
         width: 176
         height: 163
       alignment: 0
@@ -205,17 +205,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffe0f3f3aa8934e528ef7b09b5b27266
+      spriteID: 72716cfc745bd4a25846681f0330222c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hi_Bridgette_Structs_Blue_6
+      name: Hi_Bridgette-BG_Structs_Red_6
       rect:
         serializedVersion: 2
-        x: 1657
-        y: 4
+        x: 1655
+        y: 7
         width: 337
         height: 334
       alignment: 0
@@ -225,7 +225,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 586ff2fc85b4c41c9b0d2a5474ef71eb
+      spriteID: f340f78712c1d4c43b10e92486bbfb65
       vertices: []
       indices: 
       edges: []
@@ -233,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a8dff711802e4408ab4a2200602d98a1
+    spriteID: 35d18163498eb419d8f86c2198500d35
     vertices: []
     indices: 
     edges: []
