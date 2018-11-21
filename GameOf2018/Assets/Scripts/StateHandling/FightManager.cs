@@ -56,6 +56,20 @@ public class FightManager : MonoBehaviour {
         victim.TakeDamage(damage);
     }
 
+    public void EndCombat(Fighter fighter)
+    {
+        if (fighter == bridgette)
+        {
+            bridgette.MyPlatformer.SetReturnPoint(Checkpoint.activeCheckpoint);
+            enemy.changeToPlatformer();
+        }
+        else
+        {
+            enemy.gameObject.SetActive(false);
+        }
+        bridgette.changeToPlatformer();
+    }
+
     // Update is called once per frame
     void FixedUpdate ()
     {

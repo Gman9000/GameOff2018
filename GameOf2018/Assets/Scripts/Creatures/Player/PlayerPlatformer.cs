@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PlayerPlatformer : Platformer
 {
-
-
-    // scripts
-    public LevelManager theLevelManager;
+    public Camera myCamera;
 
     //Moving the player
     public float moveSpeed;
@@ -37,12 +34,14 @@ public class PlayerPlatformer : Platformer
     public float gravityScale;
 
     // Use this for initialization
-    protected override void init()
+    protected override void SubclassInit()
     {
+        Return();
         remainingJumps = 0;
         pressingJump = false;
         stunCounter = 0;
         remainingAirDashes = maxAirDashes;
+        StateManager.instance.SwitchToCamera(myCamera);
     }
 
     protected override void DisableCollider()
@@ -153,17 +152,13 @@ public class PlayerPlatformer : Platformer
         //myAnimator.SetFloat("Speed", myRigidBody.velocity.x);
     }
 
-    /*private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-
-
-        if (Input.GetKeyDown(jump) && (isTouchingJumpableWallOnLeft || isTouchingJumpableWallOnRight))
+        if (collision.collider.tag == "death")
         {
-                myRigidBody.velocity = new Vector3(-myRigidBody.velocity.x, -jumpSpeed/2, 0f);
-          
-
+            myRigidBody.position = Checkpoint.activeCheckpoint.transform.position;
         }
-    }*/
+    }
 
     // checks the grounded state of the BoxCollider2D
     public bool IsGrounded()
