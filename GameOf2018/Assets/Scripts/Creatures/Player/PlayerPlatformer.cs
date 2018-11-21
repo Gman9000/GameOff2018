@@ -64,14 +64,15 @@ public class PlayerPlatformer : Platformer
             remainingJumps = maxJumps;
             remainingAirDashes = maxAirDashes;
         }
-        if (IsTouchingWall())
-        {
-            stunCounter = 0.0f;
-        }
         // if the player is not grounded, but has full jumps, subtract one to prevent free air jump
         else if (remainingJumps >= maxJumps)
         {
             remainingJumps = maxJumps - 1;
+        }
+
+        if (IsTouchingWall())
+        {
+            stunCounter = 0.0f;
         }
 
         //Moving the Player
@@ -99,19 +100,20 @@ public class PlayerPlatformer : Platformer
 
         }
 
-
+        // wall jump
         if (Constants.PlayerInput.IsPressingSpace && IsTouchingWall() && !IsGrounded() && !pressingJump)
         {
             stunCounter = 0.0f;
             myRigidBody.gravityScale = gravityScale;
-            float wallJumpx = jumpSpeed * Mathf.Cos(wallJumpAngle) * transform.localScale.x;
-            float wallJumpy = jumpSpeed * Mathf.Sin(wallJumpAngle);
+            float wallJumpx = wallJumpSpeed * Mathf.Cos(wallJumpAngle) * transform.localScale.x;
+            float wallJumpy = wallJumpSpeed * Mathf.Sin(wallJumpAngle);
             MyRigidBody.velocity = new Vector2(wallJumpx, wallJumpy);
             pressingJump = true;
             stunCounter = stunCooldown;
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
 
+        // multi jump
         //if a player is pressing jump, has jumps left to press, and isn't holding jump from a previous input, and we are not touching the wall jump
         else if (Constants.PlayerInput.IsPressingSpace && remainingJumps > 0 && !pressingJump)
         {
@@ -125,6 +127,7 @@ public class PlayerPlatformer : Platformer
             pressingJump = false;
         }
 
+        // air dash
         if (!IsGrounded() && Constants.PlayerInput.IsPressingAirDash && !pressingAirDash && remainingAirDashes > 0)
         {
             pressingAirDash = true;
