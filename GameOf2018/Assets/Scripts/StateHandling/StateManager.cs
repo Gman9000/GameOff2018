@@ -50,6 +50,9 @@ public class StateManager : MonoBehaviour {
 
     public void StartCombat(PlayerPlatformer bridgette, EnemyPlatformer enemy, Vector2 collisionPoint)
     {
+        bridgette.SetReturnPoint();
+        enemy.SetReturnPoint();
+
         bridgette.MyRigidBody.position = (Vector2)fighterCamera.transform.position - (collisionPoint - bridgette.MyRigidBody.position);
         enemy.MyRigidBody.position = (Vector2)fighterCamera.transform.position - (collisionPoint - enemy.MyRigidBody.position);
 
@@ -73,7 +76,7 @@ public class StateManager : MonoBehaviour {
         blackScreenScaleRate = -1f / transitionTime * BlackScreen.transform.localScale.x;
     }
 
-    private void SwitchToCamera(Camera c)
+    public void SwitchToCamera(Camera c)
     {
         fighterCamera.enabled = false;
         pBridgette.enabled = false;

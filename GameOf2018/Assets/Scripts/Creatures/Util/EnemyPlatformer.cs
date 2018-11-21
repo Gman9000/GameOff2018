@@ -14,7 +14,7 @@ public abstract class EnemyPlatformer : Platformer
         }
     }
 
-    protected override void init()
+    protected override void SubclassInit()
     {
         centerToBottom = 0.0f;
         foreach (BoxCollider2D hitbox in hitboxes)
@@ -23,7 +23,7 @@ public abstract class EnemyPlatformer : Platformer
             centerToBottom = Mathf.Max(centerToBottom, hitbox.size.y / 2.0f - hitbox.offset.y);
         }
 
-        SubclassInit();
+        // SubclassInit();
     }
 
     protected override void DisableCollider()
@@ -42,9 +42,6 @@ public abstract class EnemyPlatformer : Platformer
             //BoxCollider2D box = hitbox.GetComponent<BoxCollider2D>();
             hitbox.enabled = true;
         }
-        myRigidBody.gravityScale = 1;
+        myRigidBody.gravityScale = 4;
     }
-
-    protected abstract void SubclassInit();
-
 }

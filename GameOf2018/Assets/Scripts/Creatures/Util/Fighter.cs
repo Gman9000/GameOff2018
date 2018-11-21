@@ -20,6 +20,13 @@ public abstract class Fighter : MonoBehaviour {
     }
     private RuntimeAnimatorController myAnimatorController;
     private Platformer myPlatformer;
+    public Platformer MyPlatformer
+    {
+        get
+        {
+            return myPlatformer;
+        }
+    }
 
     private float toZeroCounter; // set velocity to 0 when this hits 0
     private Vector2 anchorPoint;
@@ -44,7 +51,6 @@ public abstract class Fighter : MonoBehaviour {
         attackIndex = index;
         attackCounter = attacks[index].windUp + attacks[index].hitTime;
         actionBarCounter = 0.0f;
-        Debug.Log("init attack");
     }
 
     void FixedUpdate()
@@ -82,12 +88,12 @@ public abstract class Fighter : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
-            currentHealth = 0;
+            currentHealth = maxHealth;
             // tell fightmanager that you died
+            FightManager.instance.EndCombat(this);
         }
-        Debug.Log("took damage");
     }
 
     public float HealthPercent
@@ -129,5 +135,12 @@ public abstract class Fighter : MonoBehaviour {
         {
             actionBarCounter = MAX_ACTION_BAR;
         }
+    }
+
+    public void changeToPlatformer()
+    {
+        myPlatformer.enabled = true;
+        myPlatformer.Init();
+        this.enabled = false;
     }
 }

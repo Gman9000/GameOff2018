@@ -30,6 +30,9 @@ public abstract class Platformer : MonoBehaviour {
         }
     }
 
+    // point to return to after battle;
+    private Vector2 returnPoint;
+
     // Use this for initialization
     void Start()
     {
@@ -37,10 +40,18 @@ public abstract class Platformer : MonoBehaviour {
         myBoxCollider = GetComponent<BoxCollider2D>();
         myAnimatorController = GetComponent<RuntimeAnimatorController>();
         myFighter = GetComponent<Fighter>();
-        init();
+        SetReturnPoint();
+        Init();
     }
 
-    protected abstract void init();
+    public void Init()
+    {
+        myRigidBody.position = returnPoint;
+        SubclassInit();
+        EnableCollider();
+    }
+
+    protected abstract void SubclassInit();
 
     public void changeToFighter(Vector2 anchor, float transitionTime)
     {
@@ -50,6 +61,10 @@ public abstract class Platformer : MonoBehaviour {
         DisableCollider();
         //myRigidBody.isKinematic = true;
     }
+
+    public void SetReturnPoint() { returnPoint = myRigidBody.position; }
+    public void SetReturnPoint(Checkpoint c) { returnPoint = c.transform.position; }
+    public void Return() { myRigidBody.position = returnPoint; }
 
     protected abstract void DisableCollider();
     protected abstract void EnableCollider();
