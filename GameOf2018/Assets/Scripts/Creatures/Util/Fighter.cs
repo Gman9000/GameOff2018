@@ -32,7 +32,7 @@ public abstract class Fighter : MonoBehaviour {
     private Vector2 anchorPoint;
 
     protected int attackIndex;
-    protected float attackCounter;
+    protected float attackCounter; // timer for animation syncing of attack
 
     protected float MAX_ACTION_BAR = 100f;
     protected float actionBarCounter;
@@ -115,11 +115,17 @@ public abstract class Fighter : MonoBehaviour {
 
     public void Init(Vector2 anchor, float transitionTime)
     {
+        attackIndex = 0;
+
         anchorPoint = anchor;
         toZeroCounter = transitionTime;
 
         actionBarCounter = MAX_ACTION_BAR;
+
+        SubclassInit(anchor, transitionTime);
     }
+
+    protected abstract void SubclassInit(Vector2 anchor, float transitionTime);
 
     private void ManageCooldowns()
     {
@@ -137,10 +143,13 @@ public abstract class Fighter : MonoBehaviour {
         }
     }
 
-    public void changeToPlatformer()
+    public void ChangeToPlatformer()
     {
         myPlatformer.enabled = true;
         myPlatformer.Init();
         this.enabled = false;
+        SubclassEnd();
     }
+
+    protected abstract void SubclassEnd();
 }

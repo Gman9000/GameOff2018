@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class EnemyFighter : Fighter
 {
+
+    protected override void SubclassInit(Vector2 anchor, float transitionTime)
+    {
+        // nothing
+    }
+
+    protected override void SubclassEnd() { }
+
     protected override void SubclassUpdate()
     {
         // attack when off cooldown
