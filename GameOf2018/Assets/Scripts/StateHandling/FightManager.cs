@@ -43,9 +43,16 @@ public class FightManager : MonoBehaviour {
         enemyName.text = p2.creatureName;
     }
 
-    public bool IsTie(Fighter fighter, float windUp, float hitTime)
+    public bool CheckForTie(Fighter fighter)
     {
-        // todo
+        Fighter victim = fighter == bridgette ? enemy : bridgette;
+
+        if (victim.GetTimeToHitZone() <= 0.0f)
+        {
+            fighter.CauseTie();
+            victim.CauseTie();
+            return true;
+        }
         return false;
     }
 

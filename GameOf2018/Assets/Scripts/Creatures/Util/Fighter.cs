@@ -33,9 +33,14 @@ public abstract class Fighter : MonoBehaviour {
 
     protected int attackIndex;
     protected float attackCounter; // timer for animation syncing of attack
+    private bool tied;
+    private bool interrupted;
 
     protected float MAX_ACTION_BAR = 100f;
     protected float actionBarCounter;
+    protected float cooldownMultiplier = 1.0f;
+    protected float TIE_MULTIPLIER = 0.25f;
+    protected float INTERRUPTED_MULTIPLIER = 0.5f;
 
     // Use this for initialization
     void Start()
@@ -69,18 +74,12 @@ public abstract class Fighter : MonoBehaviour {
             // if you are in hit time, dmg
             if (attackCounter > 0.0f && attackCounter <= attacks[attackIndex].hitTime)
             {
-                if (FightManager.instance.IsTie(this, attacks[attackIndex].windUp, attacks[attackIndex].hitTime))
+                if (FightManager.instance.CheckForTie(this))
                 {
                     // clash with opponent
+                    Debug.Log("clash");
                 }
-                else
-                {
-                    // change opponent to hit animation
-                    FightManager.instance.DealDamage(this, attacks[attackIndex].damage);
-                }
-                attackCounter = 0.0f;
             }
-
             ManageCooldowns();
         }
     }
@@ -88,11 +87,20 @@ public abstract class Fighter : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        // TODO play hit animation
         if (currentHealth <= 0)
         {
             currentHealth = maxHealth;
             // tell fightmanager that you died
             FightManager.instance.EndCombat(this);
+        }
+        // interrupt current attack
+        else if (attackCounter > 0.0f)
+        {
+            attackCounter = 0.0f;
+            interrupted = true;
+            cooldownMultiplier = INTERRUPTED_MULTIPLIER;
+            Debug.Log("interrupted");
         }
     }
 
@@ -116,6 +124,8 @@ public abstract class Fighter : MonoBehaviour {
     public void Init(Vector2 anchor, float transitionTime)
     {
         attackIndex = 0;
+        tied = false;
+        interrupted = false;
 
         anchorPoint = anchor;
         toZeroCounter = transitionTime;
@@ -132,15 +142,40 @@ public abstract class Fighter : MonoBehaviour {
         if (attackCounter > 0.0f)
         {
             attackCounter -= Time.deltaTime;
+
+            if (attackCounter <= 0.0f)
+            {
+                // attack
+                if (!tied && !interrupted) FightManager.instance.DealDamage(this, attacks[attackIndex].damage);
+                else
+                {
+                    tied = false;
+                    interrupted = false;
+                }
+                attackCounter = 0.0f;
+            }
         }
-        if (actionBarCounter < MAX_ACTION_BAR)
+        if (attackCounter <= 0.0f && actionBarCounter < MAX_ACTION_BAR)
         {
-            actionBarCounter += Time.deltaTime / attacks[attackIndex].cooldown * MAX_ACTION_BAR;
+            actionBarCounter += Time.deltaTime / (attacks[attackIndex].cooldown * cooldownMultiplier) * MAX_ACTION_BAR;
         }
-        else
+        else if (attackCounter <= 0.0f)
         {
             actionBarCounter = MAX_ACTION_BAR;
+            cooldownMultiplier = 1.0f;
         }
+    }
+
+    public float GetTimeToHitZone()
+    {
+        if (attackCounter <= 0.0f) return float.MaxValue;
+
+        return Mathf.Max(attackCounter - attacks[attackIndex].hitTime, 0.0f);
+    }
+
+    public void CauseTie() {
+        tied = true;
+        cooldownMultiplier = TIE_MULTIPLIER;
     }
 
     public void ChangeToPlatformer()

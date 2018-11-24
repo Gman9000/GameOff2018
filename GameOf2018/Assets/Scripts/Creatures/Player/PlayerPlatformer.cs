@@ -97,6 +97,11 @@ public class PlayerPlatformer : Platformer
                 myRigidBody.velocity = new Vector3(0f, myRigidBody.velocity.y, 0f);
             }
 
+            if (Constants.PlayerInput.IsPressingDown)
+            {
+                myRigidBody.velocity = new Vector3(0f, myRigidBody.velocity.y, 0f);
+            }
+
         }
 
         // wall jump
