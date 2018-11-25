@@ -9,7 +9,11 @@ public class DialogBoxManager : MonoBehaviour
     public static DialogBoxManager instance;
 
     public GameObject textContainer;
-    private DialogConvo currentDialog;
+    public Image icon;
+    public Text textToShow;
+    public Text currentSpeaker;
+
+    //private DialogConvo currentDialog;
     private List<DialogConvo> conversationToHave;
     private int dialogIndex;
 
@@ -27,7 +31,7 @@ public class DialogBoxManager : MonoBehaviour
         {
             closeDialogBox();
         }
-        if (dialogIndex >= 0 && dialogIndex <= conversationToHave.Count - 1)
+        else if (dialogIndex >= 0 && dialogIndex <= conversationToHave.Count - 1)
         {
             populateConvoByIndex(dialogIndex);
             dialogIndex++;
@@ -37,21 +41,24 @@ public class DialogBoxManager : MonoBehaviour
             dialogIndex = -1;
         }
     }
+    
 
-    void SetDialogSequence(List<DialogConvo> sequenceToAdd)
+
+    public void SetDialogSequence(List<DialogConvo> sequenceToAdd)
     {
         conversationToHave = sequenceToAdd;
+        dialogIndex = 0;
     }
 
     void setIconAndSpeaker(Image icn, string speaker)
     {
-        currentDialog.icon = icn;
-        currentDialog.speaker = speaker;
+        icon.sprite = icn.sprite;
+        currentSpeaker.text = speaker;
     }
 
     void populateTextBox(DialogConvo convs)
     {
-        currentDialog.textToShow = convs.textToShow;
+        textToShow.text = convs.textToShow;
     }
 
     void populateConvoByIndex(int index)
@@ -64,12 +71,25 @@ public class DialogBoxManager : MonoBehaviour
     void closeDialogBox()
     {
         conversationToHave.Clear();
-        currentDialog.textToShow = "";
+        //textToShow.text = "";
+        dialogIndex = -1;
+        deactivateDialogBox();
     }
 
-    void disableTextBox()
+    void deactivateDialogBox()
     {
         textContainer.SetActive(false);
+        icon.gameObject.SetActive(false);
+        textToShow.gameObject.SetActive(false);
+        currentSpeaker.gameObject.SetActive(false);
+    }
+
+    public void ActivateDialogBox()
+    {
+        textContainer.SetActive(true);
+        icon.gameObject.SetActive(true);
+        textToShow.gameObject.SetActive(true);
+        currentSpeaker.gameObject.SetActive(true);
     }
 
     void enabletextBox()
