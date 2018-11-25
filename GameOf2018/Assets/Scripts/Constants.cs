@@ -47,6 +47,14 @@ public class Constants
             }
         }
 
+        public static bool IsPressingEscape
+        {
+            get
+            {
+                return Input.GetKey(KeyCode.Escape);
+            }
+        }
+
         public static bool IsPressingAirDash
         {
             get
