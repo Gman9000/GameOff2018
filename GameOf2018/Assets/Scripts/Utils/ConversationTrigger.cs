@@ -16,8 +16,9 @@ public class ConversationTrigger : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
+            List<DialogConvo> tempDialogs = new List<DialogConvo>(dialogs);
             daBoxManagah.ActivateDialogBox();
-            daBoxManagah.SetDialogSequence(dialogs);
+            daBoxManagah.SetDialogSequence(tempDialogs);
             //DialogBoxManager.instance.ActivateDialogBox();
             //DialogBoxManager.instance.SetDialogSequence(dialogs);
         }

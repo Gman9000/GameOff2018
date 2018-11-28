@@ -20,7 +20,7 @@ public abstract class Platformer : MonoBehaviour {
             return myBoxCollider;
         }
     }
-    protected RuntimeAnimatorController myAnimatorController;
+    protected Animator myAnimatorController;
     protected Fighter myFighter;
     public Fighter MyFighter
     {
@@ -38,7 +38,7 @@ public abstract class Platformer : MonoBehaviour {
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myBoxCollider = GetComponent<BoxCollider2D>();
-        myAnimatorController = GetComponent<RuntimeAnimatorController>();
+        myAnimatorController = GetComponent<Animator>();
         myFighter = GetComponent<Fighter>();
         SetReturnPoint();
         Init();

@@ -47,6 +47,14 @@ public class Constants
             }
         }
 
+        public static bool IsReleasingSpace
+        {
+            get
+            {
+                return Input.GetKeyUp(KeyCode.Space);
+            }
+        }
+
         public static bool IsPressingEscape
         {
             get

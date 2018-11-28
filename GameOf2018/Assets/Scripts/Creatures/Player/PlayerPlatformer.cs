@@ -81,6 +81,7 @@ public class PlayerPlatformer : Platformer
             if (Constants.PlayerInput.IsPressingRight)
             {
                 myRigidBody.velocity = new Vector3(moveSpeed, myRigidBody.velocity.y, 0f);
+                //myAnimatorController.SetFloat("velocity", myRigidBody.velocity.x);
 
                 //keep the scaling intact
                 transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
@@ -101,6 +102,7 @@ public class PlayerPlatformer : Platformer
             {
                 myRigidBody.velocity = new Vector3(0f, myRigidBody.velocity.y, 0f);
             }
+                myAnimatorController.SetFloat("velocity", Mathf.Abs(myRigidBody.velocity.x));
 
         }
 

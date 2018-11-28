@@ -16,9 +16,18 @@ public class DialogBoxManager : MonoBehaviour
     //private DialogConvo currentDialog;
     private List<DialogConvo> conversationToHave;
     private int dialogIndex;
+    private Platformer[] myPlatformers;
+    public Platformer[] MyPlatformers
+    {
+        get
+        {
+            return myPlatformers;
+        }
+    }
 
     void Awake()
     {
+        myPlatformers = FindObjectsOfType<Platformer>();
         dialogIndex = -1;
         textContainer.SetActive(false);
         conversationToHave = new List<DialogConvo>();
@@ -34,20 +43,37 @@ public class DialogBoxManager : MonoBehaviour
         else if (dialogIndex >= 0 && dialogIndex <= conversationToHave.Count - 1)
         {
             populateConvoByIndex(dialogIndex);
-            dialogIndex++;
+            if (Constants.PlayerInput.IsReleasingSpace)
+            {
+                dialogIndex++;
+            }
         }
         else
         {
             dialogIndex = -1;
         }
     }
-    
 
+    void deactivatePlatformers() {
+        foreach(Platformer plat in myPlatformers) {
+            plat.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            plat.gameObject.GetComponent<Animator>().SetFloat("velocity", Vector2.zero.x);
+            plat.gameObject.GetComponent<Rigidbody2D>().gravityScale = plat.gameObject.GetComponent<PlayerPlatformer>().gravityScale;
+            plat.enabled = false;
+        }
+    }
+
+    void activatePlatformers() {
+        foreach(Platformer plat in myPlatformers) {
+            plat.enabled = true;
+        }
+    }
 
     public void SetDialogSequence(List<DialogConvo> sequenceToAdd)
     {
         conversationToHave = sequenceToAdd;
         dialogIndex = 0;
+        deactivatePlatformers();
     }
 
     void setIconAndSpeaker(Image icn, string speaker)
@@ -67,15 +93,6 @@ public class DialogBoxManager : MonoBehaviour
         populateTextBox(conversationToHave[index]);
     }
 
-
-    void closeDialogBox()
-    {
-        conversationToHave.Clear();
-        //textToShow.text = "";
-        dialogIndex = -1;
-        deactivateDialogBox();
-    }
-
     void deactivateDialogBox()
     {
         textContainer.SetActive(false);
@@ -91,9 +108,12 @@ public class DialogBoxManager : MonoBehaviour
         textToShow.gameObject.SetActive(true);
         currentSpeaker.gameObject.SetActive(true);
     }
-
-    void enabletextBox()
+    void closeDialogBox()
     {
-        textContainer.SetActive(true);
+        conversationToHave.Clear();
+        //textToShow.text = "";
+        dialogIndex = -1;
+        deactivateDialogBox();
+        activatePlatformers();
     }
 }
