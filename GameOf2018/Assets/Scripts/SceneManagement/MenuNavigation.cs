@@ -11,6 +11,7 @@ public class MenuNavigation : MonoBehaviour {
     public string mainMenu;
     public string credits;
     public string intro;
+    public string titleScreen;
     // Use this for initialization
     void Start () {
 		
@@ -37,7 +38,12 @@ public class MenuNavigation : MonoBehaviour {
     {
         SceneManager.LoadScene(credits);
     }
+    public void ReturnToTitle()
+    {
 
+        SceneManager.LoadScene("STARTUP");
+        Time.timeScale = 1.0f;
+    }
     public void QuitGame()
     {
         Application.Quit();
