@@ -34,10 +34,11 @@ public class Credits : MonoBehaviour
         QuitGameButton.gameObject.SetActive(false);
 
         setAlphaToZero();
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (objToMove != null)
         {

@@ -27,7 +27,7 @@ public class DialogBoxManager : MonoBehaviour
 
     void Awake()
     {
-        myPlatformers = FindObjectsOfType<Platformer>();
+        myPlatformers = FindObjectsOfType<PlayerPlatformer>();
         dialogIndex = -1;
         textContainer.SetActive(false);
         conversationToHave = new List<DialogConvo>();
@@ -51,14 +51,15 @@ public class DialogBoxManager : MonoBehaviour
         else
         {
             dialogIndex = -1;
+            closeDialogBox();
         }
     }
 
     void deactivatePlatformers() {
-        foreach(Platformer plat in myPlatformers) {
+        foreach(PlayerPlatformer plat in myPlatformers) {
             plat.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             plat.gameObject.GetComponent<Animator>().SetFloat("velocity", Vector2.zero.x);
-            plat.gameObject.GetComponent<Rigidbody2D>().gravityScale = plat.gameObject.GetComponent<PlayerPlatformer>().gravityScale;
+            plat.gameObject.GetComponent<Rigidbody2D>().gravityScale = plat.gravityScale;
             plat.enabled = false;
         }
     }
@@ -76,9 +77,9 @@ public class DialogBoxManager : MonoBehaviour
         deactivatePlatformers();
     }
 
-    void setIconAndSpeaker(Image icn, string speaker)
+    void setIconAndSpeaker(Sprite icn, string speaker)
     {
-        icon.sprite = icn.sprite;
+        icon.sprite = icn;
         currentSpeaker.text = speaker;
     }
 
@@ -89,7 +90,7 @@ public class DialogBoxManager : MonoBehaviour
 
     void populateConvoByIndex(int index)
     {
-        setIconAndSpeaker(conversationToHave[index].icon, conversationToHave[index].speaker);
+        setIconAndSpeaker(conversationToHave[index].sprite, conversationToHave[index].speaker);
         populateTextBox(conversationToHave[index]);
     }
 

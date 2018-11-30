@@ -3,23 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogConvo : MonoBehaviour
+[CreateAssetMenu(fileName = "DialogConvo", menuName = "DialogConvo")]
+public class DialogConvo : ScriptableObject
 {
 
-    public Image icon;
+    public string speaker;
+    public Sprite sprite;
+    [TextArea]
     public string textToShow;
 
-    //constructor here for the icon and text to Show <-option 1
-    public string speaker;
-    // Use this for initialization
-    void Start()
-    {
-        icon = GetComponent<Image>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
