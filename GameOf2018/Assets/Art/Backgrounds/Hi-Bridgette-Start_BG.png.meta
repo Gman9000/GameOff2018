@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: 4eab428f106ba4aa8868e04fea6666c8
+guid: 134329ba0eba74055b329cd6ee276c97
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Hi_Bridgette_Brickmaster_0
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -32,7 +31,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,17 +40,17 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 609, y: 264, z: 1241, w: 181}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -70,48 +69,13 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Hi_Bridgette_Brickmaster_0
-      rect:
-        serializedVersion: 2
-        x: 609
-        y: 264
-        width: 150
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 37ecb6572b8f14c7697b1c2fb010c109
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    outline:
-    - - {x: -391, y: 9}
-      - {x: -391, y: 73}
-      - {x: -240, y: 73}
-      - {x: -240, y: 9}
+    sprites: []
+    outline: []
     physicsShape: []
     bones: []
-    spriteID: ae2c351ddc6c84004abbc8a49e3d595e
+    spriteID: f5dbdf01fd45a4d42a4534620fbe788b
     vertices: []
     indices: 
     edges: []
