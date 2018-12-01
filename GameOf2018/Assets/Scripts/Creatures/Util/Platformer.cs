@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Platformer : MonoBehaviour {
+    protected bool isEnabled;
 
     protected Rigidbody2D myRigidBody;
     public Rigidbody2D MyRigidBody
@@ -49,6 +50,7 @@ public abstract class Platformer : MonoBehaviour {
         myRigidBody.position = returnPoint;
         SubclassInit();
         EnableCollider();
+        isEnabled = true;
     }
 
     protected abstract void SubclassInit();
@@ -57,8 +59,7 @@ public abstract class Platformer : MonoBehaviour {
     {
         myFighter.enabled = true;
         myFighter.Init(anchor, transitionTime);
-        //this.GetComponent<PlayerPlatformer>().enabled = false;
-        this.enabled = false;
+        isEnabled = false;
         DisableCollider();
         //myRigidBody.isKinematic = true;
     }
