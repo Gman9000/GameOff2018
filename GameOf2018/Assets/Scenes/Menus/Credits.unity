@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765720461271b6246bd0cdbddbb57934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newTrack: {fileID: 8300000, guid: 5032840e50645934f9ff3116c30ba1b9, type: 3}
+  newTrack: {fileID: 8300000, guid: 29daadb7b994f3e488ad42ea92938c79, type: 3}
 --- !u!4 &402857588
 Transform:
   m_ObjectHideFlags: 0

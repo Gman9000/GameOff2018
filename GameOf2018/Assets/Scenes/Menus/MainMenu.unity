@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765720461271b6246bd0cdbddbb57934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newTrack: {fileID: 8300000, guid: 5032840e50645934f9ff3116c30ba1b9, type: 3}
+  newTrack: {fileID: 8300000, guid: 29daadb7b994f3e488ad42ea92938c79, type: 3}
 --- !u!4 &278769463
 Transform:
   m_ObjectHideFlags: 0
@@ -738,6 +738,7 @@ MonoBehaviour:
   mainMenu: MainMenu
   credits: Credits
   intro: 
+  titleScreen: 
 --- !u!1 &1784623051
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,11 +776,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5032840e50645934f9ff3116c30ba1b9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 29daadb7b994f3e488ad42ea92938c79, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
