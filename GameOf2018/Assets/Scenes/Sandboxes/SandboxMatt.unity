@@ -113,6 +113,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &54414039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1055023249308328, guid: 757cc75d6a40f2245b79b1c4f80f4c02,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 54414041}
+  - component: {fileID: 54414040}
+  m_Layer: 10
+  m_Name: Combat Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &54414040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114360953900821876, guid: 757cc75d6a40f2245b79b1c4f80f4c02,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 54414039}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765720461271b6246bd0cdbddbb57934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newTrack: {fileID: 8300000, guid: c3f92e4ff47a7ce4894dfd888341d8f2, type: 3}
+--- !u!4 &54414041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4578805316540482, guid: 757cc75d6a40f2245b79b1c4f80f4c02,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 54414039}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.268875, y: -0.5678482, z: 0.47222835}
+  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &57615593 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114636915681578168, guid: 69caff719067f624191377d76f2e7d92,
@@ -956,6 +1000,50 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1121934212}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &757279624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1119225955831180, guid: cabddd70ed1396e4ebd16ed7bc105a13,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 757279626}
+  - component: {fileID: 757279625}
+  m_Layer: 0
+  m_Name: Level Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &757279625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114203524609257178, guid: cabddd70ed1396e4ebd16ed7bc105a13,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 757279624}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765720461271b6246bd0cdbddbb57934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newTrack: {fileID: 8300000, guid: 29daadb7b994f3e488ad42ea92938c79, type: 3}
+--- !u!4 &757279626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4690520111213910, guid: cabddd70ed1396e4ebd16ed7bc105a13,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 757279624}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.26, y: -45.95, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &773487190
 Prefab:
   m_ObjectHideFlags: 0
@@ -2383,6 +2471,8 @@ MonoBehaviour:
   enemyHealthBar: {fileID: 1003768951}
   enemyMaxActionBar: {fileID: 57615593}
   enemyActionBar: {fileID: 294666481}
+  combatMusic: {fileID: 54414039}
+  levelMusic: {fileID: 757279624}
 --- !u!224 &1771852103 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224659439830196840, guid: 69caff719067f624191377d76f2e7d92,
@@ -2661,7 +2751,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2050097190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.298213, y: 0.016122937, z: -10}
+  m_LocalPosition: {x: -1.2949934, y: 0.016134381, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

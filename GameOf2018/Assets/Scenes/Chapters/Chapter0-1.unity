@@ -1008,7 +1008,6 @@ GameObject:
   - component: {fileID: 480686567}
   - component: {fileID: 480686566}
   - component: {fileID: 480686569}
-  - component: {fileID: 480686570}
   m_Layer: 0
   m_Name: enemyClownMageIdle_0
   m_TagString: Untagged
@@ -1089,7 +1088,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.26, y: -45.95, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2055804112}
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1099,7 +1099,7 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 480686562}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1130,7 +1130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitboxes:
-  - {fileID: 480686566}
+  - {fileID: 2055804113}
 --- !u!114 &480686568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,7 +1146,7 @@ MonoBehaviour:
   creatureName: Rift Master
   maxHealth: 123
   attacks:
-  - {fileID: 11400000, guid: 3b3483318a84ebc4384a0d95ddb5d608, type: 2}
+  - {fileID: 11400000, guid: fa480401ba90a764e86159d8e35024da, type: 2}
 --- !u!50 &480686569
 Rigidbody2D:
   serializedVersion: 4
@@ -1167,21 +1167,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &480686570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 480686562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 286d762c6b9a41b47b84017f53179f9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myPlatformer: {fileID: 480686567}
-  hitBoxType: 1
-  weakpointDamageRecieved: 0
-  strongpointDamageDealt: 0
 --- !u!1 &535312098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,7 +1372,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 810857898}
           m_MethodName: ClickOnAttack
           m_Mode: 3
           m_Arguments:
@@ -1404,7 +1389,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 810857898}
           m_MethodName: HoverOnAttack
           m_Mode: 3
           m_Arguments:
@@ -1421,7 +1406,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 810857898}
           m_MethodName: HoverOnAttack
           m_Mode: 3
           m_Arguments:
@@ -1894,7 +1879,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 771126956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.679456, y: -32.215252, z: -10}
+  m_LocalPosition: {x: -14.449456, y: -32.215252, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2119,7 +2104,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 792998536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.679456, y: -32.215252, z: -10}
+  m_LocalPosition: {x: -14.449456, y: -32.215252, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 772400606}
@@ -2154,7 +2139,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 810857894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.9, y: -32.66, z: 0}
+  m_LocalPosition: {x: -14.67, y: -32.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 949153880}
@@ -2806,7 +2791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2.4342346, y: 0.0009765625}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &949153881
@@ -3339,7 +3324,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 810857898}
           m_MethodName: ClickOnAttack
           m_Mode: 3
           m_Arguments:
@@ -3356,7 +3341,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 810857898}
           m_MethodName: HoverOnAttack
           m_Mode: 3
           m_Arguments:
@@ -3373,7 +3358,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 810857898}
           m_MethodName: HoverOnAttack
           m_Mode: 3
           m_Arguments:
@@ -4052,7 +4037,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 810857898}
           m_MethodName: ClickOnAttack
           m_Mode: 3
           m_Arguments:
@@ -4069,7 +4054,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 810857898}
           m_MethodName: HoverOnAttack
           m_Mode: 3
           m_Arguments:
@@ -4086,7 +4071,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 810857898}
           m_MethodName: HoverOnAttack
           m_Mode: 3
           m_Arguments:
@@ -12073,7 +12058,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 810857898}
           m_MethodName: ClickOnAttack
           m_Mode: 3
           m_Arguments:
@@ -12090,7 +12075,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 810857898}
           m_MethodName: HoverOnAttack
           m_Mode: 3
           m_Arguments:
@@ -12107,7 +12092,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 810857898}
           m_MethodName: HoverOnAttack
           m_Mode: 3
           m_Arguments:
@@ -12285,6 +12270,76 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 358863751}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &2055804111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2055804112}
+  - component: {fileID: 2055804113}
+  - component: {fileID: 2055804114}
+  m_Layer: 0
+  m_Name: ENEMY HITBOX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2055804112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2055804111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 480686565}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2055804113
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2055804111}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.44, y: 1.44}
+  m_EdgeRadius: 0
+--- !u!114 &2055804114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2055804111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286d762c6b9a41b47b84017f53179f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlatformer: {fileID: 480686567}
+  hitBoxType: 1
+  weakpointDamageRecieved: 0
+  strongpointDamageDealt: 0
 --- !u!1 &2115064843
 GameObject:
   m_ObjectHideFlags: 0

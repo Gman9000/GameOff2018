@@ -11,6 +11,7 @@ public class StateManager : MonoBehaviour {
     public Camera bBridgette;
 
     public GameObject BlackScreen;
+    private float maxBlackScreenSize = 15;
     private float transitionTime = 0.25f;
     private float blackScreenScaleRate = 0.0f;
 
@@ -50,6 +51,10 @@ public class StateManager : MonoBehaviour {
 
     public void StartCombat(PlayerPlatformer bridgette, EnemyPlatformer enemy, Vector2 collisionPoint)
     {
+        BlackScreen.SetActive(true);
+        //HARDCODED
+        BlackScreen.transform.localScale = new Vector3(maxBlackScreenSize, maxBlackScreenSize, 0);
+        //SHAME
         bridgette.SetReturnPoint();
         enemy.SetReturnPoint();
 
@@ -92,8 +97,9 @@ public class StateManager : MonoBehaviour {
 
         if (BlackScreen.transform.localScale.x <= 0.0f)
         {
-            BlackScreen.transform.localScale = new Vector2();
-            blackScreenScaleRate = 0.0f;
+            BlackScreen.SetActive(false);
+            //BlackScreen.transform.localScale = new Vector2();
+            //blackScreenScaleRate = 0.0f;
         }
     }
 }
