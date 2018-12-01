@@ -57,6 +57,7 @@ public abstract class Platformer : MonoBehaviour {
     {
         myFighter.enabled = true;
         myFighter.Init(anchor, transitionTime);
+        //this.GetComponent<PlayerPlatformer>().enabled = false;
         this.enabled = false;
         DisableCollider();
         //myRigidBody.isKinematic = true;
