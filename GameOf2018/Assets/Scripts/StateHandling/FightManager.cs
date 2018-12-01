@@ -22,7 +22,8 @@ public class FightManager : MonoBehaviour {
     public Image enemyMaxActionBar;
     public Image enemyActionBar;
     private Fighter enemy;
-
+    public GameObject combatMusic;
+    public GameObject levelMusic;
     void Awake()
     {
         if (instance != null)
@@ -41,6 +42,9 @@ public class FightManager : MonoBehaviour {
         enemy = p2;
         enemyImage.overrideSprite = p2.profile;
         enemyName.text = p2.creatureName;
+        combatMusic.GetComponent<SwitchAudioOnLoad>().enabled = true;
+        levelMusic.GetComponent<SwitchAudioOnLoad>().enabled = false;
+
     }
 
     public bool CheckForTie(Fighter fighter)
@@ -75,6 +79,8 @@ public class FightManager : MonoBehaviour {
             enemy.gameObject.SetActive(false);
         }
         bridgette.ChangeToPlatformer();
+        combatMusic.GetComponent<SwitchAudioOnLoad>().enabled = false;
+        levelMusic.GetComponent<SwitchAudioOnLoad>().enabled = true;
     }
 
     // Update is called once per frame
