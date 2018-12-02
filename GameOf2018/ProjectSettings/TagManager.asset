@@ -8,6 +8,7 @@ TagManager:
   - ground
   - wall
   - death
+  - boss1
   layers:
   - Default
   - TransparentFX

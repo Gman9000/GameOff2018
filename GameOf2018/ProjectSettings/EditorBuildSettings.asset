@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/Credits.unity
     guid: a79bf8f203a04da42bb2ad5143491043
   - enabled: 1
+    path: Assets/Scenes/Chapters/BattleBridgette.unity
+    guid: 5bff52fb5b48a47f2800d998069ea74b
+  - enabled: 1
     path: Assets/Scenes/Chapters/Chapter0-1.unity
     guid: b310255b6a667114686fb31e2f7ad83d
+  - enabled: 1
+    path: Assets/Scenes/Chapters/PlatBridgette.unity
+    guid: 8667061cd9ac64983b78b3fa112a160d
   m_configObjects: {}
