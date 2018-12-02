@@ -9,6 +9,7 @@ TagManager:
   - wall
   - death
   - boss1
+  - changeScene
   layers:
   - Default
   - TransparentFX

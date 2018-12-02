@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speaker: Bridgette
   sprite: {fileID: 21300000, guid: 78a91643d5cbe204ca36a256b9bb77db, type: 3}
-  textToShow: X_X Wow that was tough.
+  textToShow: 'X_X Wow that was tough. '

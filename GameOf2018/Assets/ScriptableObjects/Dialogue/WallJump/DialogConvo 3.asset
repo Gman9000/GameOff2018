@@ -6,12 +6,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3b260df6d4b74a90b8ebc73f83b5e2b, type: 3}
-  m_Name: DialogConvo 1
+  m_Name: DialogConvo 3
   m_EditorClassIdentifier: 
   speaker: Bridgette
   sprite: {fileID: 21300000, guid: 78a91643d5cbe204ca36a256b9bb77db, type: 3}
-  textToShow: "I better not fight any more of these guys. \n*** press space to continue
-    ***"
+  textToShow: 'Jump while next to a wall in midair to wall jump
+
+    ***press space to continue***'
